@@ -28,3 +28,4 @@ graph TD
     
     Hetzner[Hetzner Automated Off-Instance Snapshots] -.->|Daily Disaster Recovery| Web
     Hetzner -.->|Daily + Logical pg_dump| DB
+```
