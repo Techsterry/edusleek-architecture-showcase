@@ -30,7 +30,7 @@ graph TD
     Hetzner -.->|Daily + Logical pg_dump| DB
 ```
 
-2. Key Engineering Challenges & Solutions
+## 2. Key Engineering Challenges & Solutions
 A. Dynamic Per-Tenant Grading Blueprints (Eliminating Schema Migrations)
 The Problem: Every school in Nigeria operates a slightly different continuous assessment (CA) structure (e.g., School A uses CA1 (10%) + CA2 (10%) + Project (10%) + Exam (70%), while School B uses four CAs and different grade boundaries). Hardcoding columns in PostgreSQL would require custom code changes and database migrations every time a new school onboarded.
 
@@ -51,7 +51,7 @@ The Problem: Teachers spend days at the end of each term handwriting repetitive 
 
 The Solution: Integrated the Groq API inside an asynchronous Celery pipeline that analyzes a student's structured subject scores, attendance, and grade trends to generate personalized, constructive teacher and principal remarks in seconds.
 
-3. Infrastructure, DevOps & Disaster Recovery
+## 3. Infrastructure, DevOps & Disaster Recovery
 Containerization & Orchestration: Fully containerized using Docker and deployed on Hetzner Cloud Linux VPS orchestrated via Coolify with zero-downtime rolling updates.
 
 Two-Layer Disaster Recovery:
@@ -60,7 +60,7 @@ Infrastructure Layer: Automated off-instance Hetzner VM snapshots with a rolling
 
 Database Layer: Scheduled logical pg_dump backups for granular, tenant-specific point-in-time table recovery without rolling back the entire multi-tenant server.
 
-4. Sanitized Reference Code Included in This Repository
+## 4. Sanitized Reference Code Included in This Repository
 reference_patterns/json_grading_engine.py — Reference implementation showing how tenant-specific JSON assessment blueprints are validated and calculated in Python/Django.
 
 reference_patterns/async_report_tasks.py — Reference implementation of fault-tolerant Celery background tasks with exponential backoff and Groq LLM integration.
